@@ -40,6 +40,79 @@ body {
   opacity: 0.8;
   background-image: radial-gradient(#444cf7 0.55px, #e5e5f7 0.55px);
   background-size: 1.1rem 1.1rem;
+  transition: 0.3s;
+}
+.change_pattern {
+  font-weight: bold;
+}
+.pattern-control {
+  display: flex;
+  position: absolute;
+  gap: 1rem;
+  top: 2rem;
+}
+.pattern-input {
+  display: none;
+}
+.patten-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  background-color: #000;
+  cursor: pointer;
+  transition: ackground-color 0.3s;
+  padding: 0.3rem 0.4rem;
+}
+.patten-label::after {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.pattern-input:checked + .patten-label {
+  background-color: #fff;
+}
+.pattern-input:checked + .patten-label::after {
+  transform: translateX(2.1rem);
+  background-color: green;
+}
+
+html:has(.pattern-input:checked) .container {
+  background-color: #df7dff;
+  opacity: 0.8;
+  background: radial-gradient(
+      circle,
+      transparent 20%,
+      #df7dff 20%,
+      #df7dff 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        #df7dff 20%,
+        #df7dff 80%,
+        transparent 80%,
+        transparent
+      )
+      12.5px 12.5px,
+    linear-gradient(#444cf7 1px, transparent 1px) 0 -0.5px,
+    linear-gradient(90deg, #444cf7 1px, #df7dff 1px) -0.5px 0;
+  background-size: 25px 25px, 25px 25px, 12.5px 12.5px, 12.5px 12.5px;
+  transition: 0.3s;
+}
+html:has(.pattern-input:checked) .top {
+  background-color: #df7dff;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #444cf755 25%, transparent 25%) -5px 0/
+      10px 10px,
+    linear-gradient(225deg, #444cf7 25%, transparent 25%) -5px 0/ 10px 10px,
+    linear-gradient(315deg, #444cf755 25%, transparent 25%) 0px 0/ 10px 10px,
+    linear-gradient(45deg, #444cf7 25%, #df7dff 25%) 0px 0/ 10px 10px;
 }
 .card {
   display: flex;
@@ -48,6 +121,7 @@ body {
   border-radius: 1rem;
   background-color: #fff;
   overflow: hidden;
+  box-shadow: 0 0 0.5rem rgb(0, 0, 0, 0.2);
 }
 .top {
   height: 10rem;
@@ -59,7 +133,9 @@ body {
       #e5e5f7 10px
     ),
     repeating-linear-gradient(#444cf755, #444cf7);
+  transition: 0.3s;
 }
+
 .middle {
   margin: 0 auto;
   text-align: center;
